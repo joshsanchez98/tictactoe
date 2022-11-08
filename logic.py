@@ -9,9 +9,9 @@ def make_empty_board():
         [None, None, None],
     ]
 
-def return_edited_board(board, x_axis, y_axis, variable):
+def return_edited_board(board, x_coord, y_coord, variable):
     """ Returns the edited board given the input. """
-    board[x_axis][y_axis] = variable
+    board[x_coord-1][y_coord-1] = variable
     return board
 
 def get_winner(board):
@@ -22,4 +22,7 @@ def get_winner(board):
 
 def other_player(player):
     """Given the character for a player, returns the other player."""
-    return 'O' # FIXME
+    if player == 'O': 
+        player = 'X'
+    elif player == 'X':
+        player = 'O'
