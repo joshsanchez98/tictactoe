@@ -4,6 +4,8 @@
 
 from logic import make_empty_board
 from logic import return_edited_board
+from logic import get_winner
+from logic import other_player
 
 if __name__ == '__main__':
 
@@ -14,8 +16,11 @@ if __name__ == '__main__':
     
     # While there is no winner:
     while winner == None:
+
+        # TODO: Update who's turn it is. 
         print('')
-        print("It's your turn!")
+        print("It's your turn:")
+        print("Player ", player, "!")
         print("Here's the current map:")
 
         # TODO: Show the board to the user.
@@ -27,23 +32,32 @@ if __name__ == '__main__':
 
         # TODO: Input a move from the player.
         # Take the values from the user:
-        x_coord = input("Enter the horizontal position of your move (Position 1-3): ")
-        print('')
         y_coord = input("Enter the vertical position of your move (Position 1-3): ")
+        print('')
+        x_coord = input("Enter the horizontal position of your move (Position 1-3): ")
 
         # TODO: Display the value you inputted: 
         print('')
         print('Your coordinates are: ')
         print(x_coord, y_coord)
         print('')
-        print('The board will look like this: ')
+        print('The board now looks like this: ')
         print('')
 
         # TODO: Update the board. 
-        board = return_edited_board(board, x_coord, y_coord, variable)
+        board = return_edited_board(board, x_coord, y_coord, player)
+        print(board[0])
+        print(board[1])
+        print(board[2])
+        print('')
 
-        # TODO: Update who's turn it is. 
-        # update the variable: 
+        # TODO: Check for win/update. 
+        print('Which means...')
+        print(get_winner(board))
 
+        if get_winner(board) == True: 
+            winner = True
+        else: 
+            player = other_player(player)
 
-        winner = True # FIXME
+        # winner = True # FIXME
