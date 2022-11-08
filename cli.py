@@ -19,8 +19,10 @@ if __name__ == '__main__':
 
         # TODO: Update who's turn it is. 
         print('')
-        print("It's your turn:")
-        print("Player ", player, "!")
+        print("It's your turn, Player...")
+        print('')
+        print(player)
+        print('')
         print("Here's the current map:")
 
         # TODO: Show the board to the user.
@@ -32,9 +34,9 @@ if __name__ == '__main__':
 
         # TODO: Input a move from the player.
         # Take the values from the user:
-        y_coord = input("Enter the vertical position of your move (Position 1-3): ")
+        y_coord = input("Enter the horizontal position of your move (Position 1-3): ")
         print('')
-        x_coord = input("Enter the horizontal position of your move (Position 1-3): ")
+        x_coord = input("Enter the vertical position of your move (Position 1-3): ")
 
         # TODO: Display the value you inputted: 
         print('')
