@@ -21,11 +21,31 @@ if __name__ == '__main__':
         print('Not fixed, buddy.')
         winner = True
 
+        # TODO: Start the loop.
+
+            # TODO: Update whose turn it is. 
+            
+            # TODO: Show the board to the user. 
+
+            # TODO: Input the move. 
+            
+                # TODO: If bot, input an automatic response. 
+
+                # TODO: If human, input move from the player.
+
+            # TODO: Display the value inputted. 
+
+            # TODO: Update the board. 
+
+            # TODO: Check for win/update.
+
     # Game Mode: Human plays human. 
     elif game_mode == 2:
 
+        # Start the loop.
         while winner == None:
-            # TODO: Update who's turn it is. 
+
+            # TODO: Update whose turn it is. 
             print('')
             print("It's your turn, Player...")
             print('')
