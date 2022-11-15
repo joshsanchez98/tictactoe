@@ -11,47 +11,62 @@ if __name__ == '__main__':
     board = Board()
     winner = None
     player = 'O'
+
+    # TODO: Determine whether 1-person or 2-person game:
+    game_mode = input("Press '1' for 1-person game, or press '2' for 2-person game: ")
     
-    # While there is no winner:
-    while winner == None:
+    # Game Mode: Human plays bot.
+    if game_mode == 1:
 
-        # TODO: Update who's turn it is. 
-        print('')
-        print("It's your turn, Player...")
-        print('')
-        print(player)
-        print('')
-        print("Here's the current map:")
+        print('Not fixed, buddy.')
+        winner = True
 
-        # TODO: Show the board to the user.
-        print('')
-        print(board)
-        print('')
+    # Game Mode: Human plays human. 
+    elif game_mode == 2:
 
-        # TODO: Input a move from the player.
-        # Take the values from the user:
-        y_coord = input("Enter the horizontal position of your move (Position 1-3): ")
-        print('')
-        x_coord = input("Enter the vertical position of your move (Position 1-3): ")
+        while winner == None:
+            # TODO: Update who's turn it is. 
+            print('')
+            print("It's your turn, Player...")
+            print('')
+            print(player)
+            print('')
+            print("Here's the current map:")
 
-        # TODO: Display the value you inputted: 
-        print('')
-        print('Your coordinates are: ')
-        print(x_coord, y_coord)
-        print('')
-        print('The board now looks like this: ')
-        print('')
+            # TODO: Show the board to the user.
+            print('')
+            print(board)
+            print('')
 
-        # TODO: Update the board. 
-        board.set_board(x_coord, y_coord, player)
-        print(board)
-        print('')
+            # TODO: Input a move from the player.
+            # Take the values from the user:
+            y_coord = input("Enter the horizontal position of your move (Position 1-3): ")
+            print('')
+            x_coord = input("Enter the vertical position of your move (Position 1-3): ")
 
-        # TODO: Check for win/update. 
-        print('Which means...')
-        # print(board.get_winner())
+            # TODO: Display the value you inputted: 
+            print('')
+            print('Your coordinates are: ')
+            print(x_coord, y_coord)
+            print('')
+            print('The board now looks like this: ')
+            print('')
 
-        if board.get_winner() == True: 
-            winner = True
-        else: 
-            player = other_player(player)
+            # TODO: Update the board. 
+            board.set_board(x_coord, y_coord, player)
+            print(board)
+            print('')
+
+            # TODO: Check for win/update. 
+            print('Which means...')
+            # print(board.get_winner())
+
+            if board.get_winner() == True: 
+                winner = True
+            else: 
+                player = other_player(player)
+
+    else:
+
+        print('Run this thing again. Did not input 1 or 2.')
+        winner = True
