@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
         # TODO: Check for win/update. 
         print('Which means...')
-        print(board.get_winner())
+        # print(board.get_winner())
 
         if board.get_winner() == True: 
             winner = True
