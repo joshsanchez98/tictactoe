@@ -18,26 +18,54 @@ if __name__ == '__main__':
     # Game Mode: Human plays bot.
     if game_mode == 1:
 
-        print('Not fixed, buddy.')
-        winner = True
+        print("Okay! Remember: You are Player 'O' and the Bot is Player 'X'!")
 
         # TODO: Start the loop.
+        while winner == None:
 
             # TODO: Update whose turn it is. 
-            
+            print('')
+            print("It's your turn, Player...")
+            print('')
+            print(player)
+            print('')
+            print("Here's the current map:")
+
             # TODO: Show the board to the user. 
+            print('')
+            print(board)
+            print('')
 
-            # TODO: Input the move. 
-            
-                # TODO: If bot, input an automatic response. 
+            # TODO: Input the move. (If bot...)
+            if player == 'X':
 
-                # TODO: If human, input move from the player.
+            # TODO: Input the move. (If human...)
+            else: 
+                # Take the values from the user:
+                y_coord = input("Enter the horizontal position of your move (Position 1-3): ")
+                print('')
+                x_coord = input("Enter the vertical position of your move (Position 1-3): ")
 
             # TODO: Display the value inputted. 
+            print('')
+            print('The coordinates are: ')
+            print(x_coord, y_coord)
+            print('')
+            print('The board now looks like this: ')
+            print('')
 
             # TODO: Update the board. 
+            board.set_board(x_coord, y_coord, player)
+            print(board)
+            print('')
 
             # TODO: Check for win/update.
+            print('Which means...')
+
+            if board.get_winner() == True: 
+                winner = True
+            else: 
+                player = other_player(player)
 
     # Game Mode: Human plays human. 
     elif game_mode == 2:

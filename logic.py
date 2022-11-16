@@ -25,7 +25,6 @@ class Board:
             s = s + '|\n-------\n'
         return s
 
-    
 
     def set_board(self, x_coord, y_coord, variable):
         """ Returns the edited board given the input. """
