@@ -4,6 +4,9 @@
 
 # OOP-injection occurs through the class Board.
 
+# For empty_space_coords function.
+import random
+
 class Board:
 
     def __init__(self):
@@ -25,6 +28,18 @@ class Board:
             s = s + '|\n-------\n'
         return s
 
+    def empty_space_coords(self):
+        """ Returns the empty spaces of the board w/ dict. """
+        new_dict = {}
+        counter = 0
+        for i in range(3): 
+            for j in range(3):
+                if self._rows[i][j] == None:
+                    counter = counter + 1
+                    new_dict[counter] = [i, j]
+        group = [k  for  k in  new_dict.keys()]
+        sample = random.sample(group, 1)[0]
+        return [new_dict[sample][0], new_dict[sample][1]]
 
     def set_board(self, x_coord, y_coord, variable):
         """ Returns the edited board given the input. """

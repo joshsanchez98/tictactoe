@@ -38,6 +38,11 @@ if __name__ == '__main__':
 
             # TODO: Input the move. (If bot...)
             if player == 'X':
+                
+                # Search for possible random spaces
+                coords = board.empty_space_coords()
+                y_coord = coords[0] + 1
+                x_coord = coords[1] + 1
 
             # TODO: Input the move. (If human...)
             else: 
@@ -48,7 +53,7 @@ if __name__ == '__main__':
 
             # TODO: Display the value inputted. 
             print('')
-            print('The coordinates are: ')
+            print('The coordinates inputted are: ')
             print(x_coord, y_coord)
             print('')
             print('The board now looks like this: ')
