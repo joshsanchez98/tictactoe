@@ -5,6 +5,7 @@
 from logic import Board
 from logic import other_player
 from logic import update_stats
+from logic import display_end_stats
 import time
 
 if __name__ == '__main__':
@@ -95,9 +96,11 @@ if __name__ == '__main__':
             if board.get_winner() == 'O': 
                 winner = 'O'
                 update_stats(winner, p1_name, p2_name)
+                display_end_stats(p1_name, p2_name)
             elif board.get_winner() == 'X': 
                 winner = 'X'
                 update_stats(winner, p1_name, p2_name)
+                display_end_stats(p1_name, p2_name)
             else: 
                 player = other_player(player)
 
@@ -156,8 +159,10 @@ if __name__ == '__main__':
             if board.get_winner() == 'O': 
                 winner = 'O'
                 update_stats(winner, p1_name, p2_name)
+                display_end_stats(p1_name, p2_name)
             elif board.get_winner() == 'X':
                 winner = 'X'
                 update_stats(winner, p1_name, p2_name)
+                display_end_stats(p1_name, p2_name)
             else: 
                 player = other_player(player)

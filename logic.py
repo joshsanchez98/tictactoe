@@ -108,8 +108,23 @@ def update_stats(winner, p1_name, p2_name):
 
     games.to_csv(games_filename)
 
-def display_end_stats():
+def display_end_stats(p1_name, p2_name):
     """Given a game's conclusion, display 3 key items."""
+
+    # Read from the file name.
+    games = read_games()
+
+    # Get and define the stats: 
+    ratio_1 = get_ratio(p1_name)
+    ratio_2 = get_ratio(p2_name)
+    total_num = len(games)
+
+    print('')
+    print('The win ratio of', p1_name, 'is', ratio_1, '!')
+    print('')
+    print('The win ratio of', p2_name, 'is', ratio_2, '!')
+    print('')
+    print('The total number of games played on this program is', total_num, '!')
 
 def read_games(): 
     """Reading games from a CSV file."""
@@ -122,3 +137,14 @@ def read_games():
             "Player 2",
             "Winner"
         ])
+
+def get_ratio(name):
+    """Get the ratio of a given person."""
+
+    # Read from the file name.
+    games = read_games()
+
+    # Calculate the ratio.
+    num_total = len(games[games["Player 1"] == name]) + len(games[games["Player 2"] == name])
+    num_wins = len(games[games["Winner"] == name])
+    return num_wins / num_total
