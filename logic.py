@@ -6,6 +6,8 @@
 
 # For empty_space_coords function.
 import random
+import pandas as pd
+games_filename = "records.csv"
 
 class Board:
 
@@ -64,10 +66,10 @@ class Board:
             if self._rows[ct[i][0]][ct[i][1]] == self._rows[ct[i][2]][ct[i][3]] == self._rows[ct[i][4]][ct[i][5]]:
                 if self._rows[ct[i][0]][ct[i][1]] == 'O': 
                     print('O Wins!')
-                    return True
+                    return 'O'
                 elif self._rows[ct[i][0]][ct[i][1]] == 'X': 
                     print('X Wins!')
-                    return True
+                    return "X"
             else:
                 if i != 7:
                     continue
@@ -85,3 +87,38 @@ def other_player(player):
         return 'X'
     elif player == 'X':
         return 'O'
+
+def update_stats(winner, p1_name, p2_name):
+    """Given a game's conclusion, update the stats on the CSV file."""
+    if winner == 'O':
+        winner_name = p1_name
+    elif winner == 'X':
+        winner_name = p2_name
+    
+    # Read from the file name.
+    games = read_games()
+
+    # Update the games dataframe.
+    games.loc[len(games)] = {
+        "Game ID": len(games) + 1,
+        "Player 1": p1_name,
+        "Player 2": p2_name,
+        "Winner": winner_name,
+    }   
+
+    games.to_csv(games_filename)
+
+def display_end_stats():
+    """Given a game's conclusion, display 3 key items."""
+
+def read_games(): 
+    """Reading games from a CSV file."""
+    try: 
+        return pd.read_csv(games_filename)
+    except FileNotFoundError:
+        return pd.DataFrame(columns=[
+            "Game ID",
+            "Player 1",
+            "Player 2",
+            "Winner"
+        ])

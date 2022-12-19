@@ -4,6 +4,7 @@
 
 from logic import Board
 from logic import other_player
+from logic import update_stats
 import time
 
 if __name__ == '__main__':
@@ -32,6 +33,12 @@ if __name__ == '__main__':
     
     # Game Mode: Human plays bot.
     if game_mode == 1:
+        
+        # TODO: Have the human input their name. 
+        print('')
+        p1_name = input("You will play against a bot! Input YOUR first 3 initials, uncaptialized:")
+        p2_name = 'robot'
+        print('')
         
         # TODO: Show the board to the user.
         print('')
@@ -82,20 +89,31 @@ if __name__ == '__main__':
             print('')
 
             # TODO: Check for win/update.
-            # TODO: Update and dispaly statistics of win/loss.
+            # TODO: Update and display statistics of win/loss.
             print('Which means...')
 
-            if board.get_winner() == True: 
-                winner = True
+            if board.get_winner() == 'O': 
+                winner = 'O'
+                update_stats(winner, p1_name, p2_name)
+            elif board.get_winner() == 'X': 
+                winner = 'X'
+                update_stats(winner, p1_name, p2_name)
             else: 
                 player = other_player(player)
 
     # Game Mode: Human plays human. 
     else:
 
+        # TODO: Have the human input their name. 
+        print('')
+        p1_name = input("Player 1 (O's), input YOUR first 3 initials, uncaptialized:")
+        print('')
+        p2_name = input("Player 2 (X's), input YOUR first 3 initials, uncaptialized:")
+        print('')
+
         # TODO: Show the board to the user.
         print('')
-        print("Okay! This is a 2-player game! Good luck of both of you!")
+        print("Okay! Again, this is a 2-player game! Good luck of both of you!")
         print('')
         time.sleep(3) # Pause for 3 second.
         print("The current map is blank:")
@@ -135,7 +153,11 @@ if __name__ == '__main__':
             # TODO: Update and display statistics of win/loss. 
             print('Which means...')
 
-            if board.get_winner() == True: 
-                winner = True
+            if board.get_winner() == 'O': 
+                winner = 'O'
+                update_stats(winner, p1_name, p2_name)
+            elif board.get_winner() == 'X':
+                winner = 'X'
+                update_stats(winner, p1_name, p2_name)
             else: 
                 player = other_player(player)
