@@ -9,6 +9,7 @@ import random
 
 class Board:
 
+    # Creates the row of the board.
     def __init__(self):
         self._rows = [
             [None, None, None],
@@ -16,6 +17,7 @@ class Board:
             [None, None, None],
         ]
 
+    # Creates the strings constituting the board.
     def __str__(self):
         s = '-------\n'
         for row in self._rows: 
