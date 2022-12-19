@@ -21,11 +21,11 @@ if __name__ == '__main__':
             print('')
         except ValueError: 
             print('')
-            print("Sorry, I didn't understand that! Type '1' for 1-person game, or type '2' for 2-person game, then press 'Enter': ")
+            print("Sorry, I didn't understand that!")
             print('')
         if (game_mode != 1) & (game_mode != 2):
             print('')
-            print("Try again! Type '1' for 1-person game, or type '2' for 2-person game, then press 'Enter': ")
+            print("Try again!")
             print('')
         else:
             break
@@ -82,6 +82,7 @@ if __name__ == '__main__':
             print('')
 
             # TODO: Check for win/update.
+            # TODO: Update and dispaly statistics of win/loss.
             print('Which means...')
 
             if board.get_winner() == True: 
@@ -130,9 +131,9 @@ if __name__ == '__main__':
             print(board)
             print('')
 
-            # TODO: Check for win/update. 
+            # TODO: Check for win/update.
+            # TODO: Update and display statistics of win/loss. 
             print('Which means...')
-            # print(board.get_winner())
 
             if board.get_winner() == True: 
                 winner = True
