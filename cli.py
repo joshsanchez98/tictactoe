@@ -4,6 +4,7 @@
 
 from logic import Board
 from logic import other_player
+import time
 
 if __name__ == '__main__':
 
@@ -13,27 +14,42 @@ if __name__ == '__main__':
     player = 'O'
 
     # TODO: Determine whether 1-person or 2-person game:
-    game_mode = input("Press '1' for 1-person game, or press '2' for 2-person game: ")
+    while True: 
+        try:
+            print('')
+            game_mode = int(input("Type '1' for 1-person game, or type '2' for 2-person game, then press 'Enter': "))
+            print('')
+        except ValueError: 
+            print('')
+            print("Sorry, I didn't understand that! Type '1' for 1-person game, or type '2' for 2-person game, then press 'Enter': ")
+            print('')
+        if (game_mode != 1) & (game_mode != 2):
+            print('')
+            print("Try again! Type '1' for 1-person game, or type '2' for 2-person game, then press 'Enter': ")
+            print('')
+        else:
+            break
     
     # Game Mode: Human plays bot.
     if game_mode == 1:
-
+        
+        # TODO: Show the board to the user.
+        print('')
         print("Okay! Remember: You are Player 'O' and the Bot is Player 'X'!")
+        print('')
+        time.sleep(3) # Pause for 3 second.
+        print("The current map is blank:")
+        print(board)
 
         # TODO: Start the loop.
         while winner == None:
 
             # TODO: Update whose turn it is. 
+            time.sleep(3) # Pause for 3 second.
             print('')
             print("It's your turn, Player...")
             print('')
             print(player)
-            print('')
-            print("Here's the current map:")
-
-            # TODO: Show the board to the user. 
-            print('')
-            print(board)
             print('')
 
             # TODO: Input the move. (If bot...)
@@ -54,12 +70,13 @@ if __name__ == '__main__':
             # TODO: Display the value inputted. 
             print('')
             print('The coordinates inputted are: ')
-            print(x_coord, y_coord)
+            print(y_coord, x_coord)
             print('')
             print('The board now looks like this: ')
             print('')
 
             # TODO: Update the board. 
+            time.sleep(3) # Pause for 3 second.
             board.set_board(x_coord, y_coord, player)
             print(board)
             print('')
@@ -73,7 +90,15 @@ if __name__ == '__main__':
                 player = other_player(player)
 
     # Game Mode: Human plays human. 
-    elif game_mode == 2:
+    else:
+
+        # TODO: Show the board to the user.
+        print('')
+        print("Okay! This is a 2-player game! Good luck of both of you!")
+        print('')
+        time.sleep(3) # Pause for 3 second.
+        print("The current map is blank:")
+        print(board)
 
         # Start the loop.
         while winner == None:
@@ -83,12 +108,6 @@ if __name__ == '__main__':
             print("It's your turn, Player...")
             print('')
             print(player)
-            print('')
-            print("Here's the current map:")
-
-            # TODO: Show the board to the user.
-            print('')
-            print(board)
             print('')
 
             # TODO: Input a move from the player.
@@ -100,12 +119,13 @@ if __name__ == '__main__':
             # TODO: Display the value you inputted: 
             print('')
             print('Your coordinates are: ')
-            print(x_coord, y_coord)
+            print(y_coord, x_coord)
             print('')
             print('The board now looks like this: ')
             print('')
 
             # TODO: Update the board. 
+            time.sleep(3) # Pause for 3 second.
             board.set_board(x_coord, y_coord, player)
             print(board)
             print('')
@@ -118,8 +138,3 @@ if __name__ == '__main__':
                 winner = True
             else: 
                 player = other_player(player)
-
-    else:
-
-        print('Run this thing again. Did not input 1 or 2.')
-        winner = True

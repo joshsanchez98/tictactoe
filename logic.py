@@ -37,9 +37,7 @@ class Board:
                 if self._rows[i][j] == None:
                     counter = counter + 1
                     new_dict[counter] = [i, j]
-        group = [k  for  k in  new_dict.keys()]
-        sample = random.sample(group, 1)[0]
-        return [new_dict[sample][0], new_dict[sample][1]]
+        return random.choice(list(new_dict.values()))
 
     def set_board(self, x_coord, y_coord, variable):
         """ Returns the edited board given the input. """
